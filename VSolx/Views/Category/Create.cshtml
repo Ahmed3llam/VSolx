@@ -1,0 +1,45 @@
+﻿@model Category
+@{
+    Layout = "_Log";
+}
+<style>
+    a {
+       color: rgba(74, 3, 161, 0.5);
+       font-weight: bold;
+       text-decoration: none;
+    }
+    a:hover {
+       color: var(--grad2-clr-left);
+       animation: moving-arrow 0.6s linear infinite;
+    }
+</style>
+<div class="list">
+              <div class="name">
+                Select
+              </div>
+              <ul>
+                <li><a  asp-action="Create" asp-controller="Category">Add</a><span>if you have account</span></li>
+                <li><>Update<span>if you haven't account</span></li>
+                <li>Delete<span>if you haven't account</span></li>
+              </ul>
+              <!--<div id="image"><img src="images/b2.png" alt="" /></div>-->
+            </div>
+            <div class="preview">
+
+<br /><br /><br /><br />
+<h2 class="main-title" id="title">Add Category</h2><br />
+<div id="log" class="row">
+<form asp-action="Create" asp-controller="Category" method="post">
+    <div class="input">
+    <span asp-validation-for="Title" ></span><br /><br />
+    <input asp-for="Title" placeholder="Category title" / ><br />
+</div>
+    <input type="submit" class="btn" value="Add" /><br />
+</form>
+</div></div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+

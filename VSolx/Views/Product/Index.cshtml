@@ -1,0 +1,47 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+    Layout = "_Layout";
+}
+<style>
+    img{
+        height:40%;
+    }
+</style>
+<a asp-action="Create" asp-controller="Product" class="card-link">create</a><br /><br /><br />
+<div class="top">
+          <h1 class="special-heading">product</h1>
+          <p>
+              Reviews And Detail About your product
+          </p>
+      </div><br /><br /><br />
+      <div class="container">
+      @foreach(var Product in Model){
+            <div class="box">
+              <a href="/Product/Detail/@Product.Id" class="card-link"><img src="@Product.Img" alt="..."></a>
+              <div class="content">
+                <h3>@Product.Title</h3>
+                <p>@Product.Body</p>
+                <h3>@Product.Price</h3>
+              </div>
+              @if (Product.UserID == Context.Session.GetInt32("UserId"))
+              {
+                <div class="info">
+                   <a href="/Product/Update/@Product.Id" class="card-link">update</a>
+                   <i class="fas fa-long-arrow-alt-right"></i>
+                   <a href="/Product/Delete/@Product.Id" onclick="return confirm('Do you want to delete this element?')" class="card-link">delete</a>
+                   <i class="fas fa-long-arrow-alt-right"></i>
+                
+                </div>
+              }
+              <div class="info">
+                <a href="/Product/Cart/@Product.Id">Add To Cart</a>
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </div>
+            </div> 
+      }
+      </div>
+
+
+

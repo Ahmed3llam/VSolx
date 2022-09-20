@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG IN</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/all.min.css"/>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="nav">
+  <nav>
+  <a class="logo" href="#"> bus </a>
+  <ul>
+      <li><a href="#LOG"> Log </a></li>
+      <li><a href="#contact"> Contact </a></li>
+  </ul>
+</nav>
+</div>
+      <center>
+      <div class="videos" id="LOG">
+        
+        <div class="container">
+          <div class="holder">
+            <div class="list">
+              <div class="name">
+                Update
+              </div>
+              <ul>
+                <li >Fname </li>
+                <li >Lname</li>
+                <li >phone </li>
+                <li >gender</li>
+                <li >email </li>
+                <li >pass </li>
+                <li >address </li>
+                <li >role</li>
+                <li >visa</li><span>if you need buy or role vip user</span>
+                <li >work</li>
+              </ul>
+              <!--<div id="image"><img src="images/b2.png" alt="" /></div>-->
+            </div>
+            <div class="preview">
+                 @RenderBody()
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact" id="contact">
+          <div id="orangeStar" class="str1"></div>
+          <div id="orangeStar" class="str2"></div>
+          <div id="purpleStar" class="str3"></div>
+          <div id="purpleStar" class="str4"></div>
+          <!-- wave effect -->
+          <div class="ocean">
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+          </div>
+        <div class="container">
+          <h2 class="special-heading">Contact</h2>
+          <p>We are born to create</p>
+          <div class="info">
+            <p class="label">Feel free to drop us a line at:</p>
+            <a href="mailto:ahmedmohamedallam230@gmail.com?subject=Contact" class="link">DEVELOPER@gmail.com</a>
+            <a href="mailto:ahmedmohamedallam230@gmail.com?subject=Contact" class="link">ADMIN@gmail.com</a>
+          </div>
+        </div>
+      </div>
+       
+      <div class="footer">&copy; 2022 <span>one</span> All Right Reserved</div>
+     </center>
+      @RenderSection("scripts", required: false)
+</body>
+</html>

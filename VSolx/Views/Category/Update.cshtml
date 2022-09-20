@@ -1,0 +1,35 @@
+﻿@model Category
+@{
+    Layout = "_Log";
+}
+<div class="list">
+              <div class="name">
+                Select
+              </div>
+              <ul>
+                <li id="logbtn">LOG IN<span>if you have account</span></li>
+                <li id="signbtn">SIGN UP<span>if you haven't account</span></li>
+              </ul>
+              <!--<div id="image"><img src="images/b2.png" alt="" /></div>-->
+            </div>
+            <div class="preview">
+
+<br /><br /><br /><br />
+<h2 class="main-title" id="title">update Category</h2><br />
+<div id="log" class="row">
+<form asp-action="Update" asp-controller="Category" method="post">
+    <div class="input">
+    
+    <span asp-validation-for="Title" ></span><br />
+    <input asp-for="Title" placeholder="Category title" /><br />
+     </div>
+    <input type="submit" class="btn" value="update Category" /><br />
+</form>
+</div></div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+

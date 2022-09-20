@@ -1,0 +1,52 @@
+﻿@model Product
+@{
+    Layout = "_Log";
+}
+<style>
+     a {
+    color: rgba(74, 3, 161, 0.5);
+    font-weight: bold;
+    text-decoration: none;
+  }
+a:hover {
+    color: var(--grad2-clr-left);
+    animation: moving-arrow 0.6s linear infinite;
+  }
+</style>
+<div class="list">
+    <div class="name">
+       Select
+    </div>
+    <ul>
+        <li><a asp-action="Index" asp-controller="Product">Show</a><span>Show product</span></li>
+        <li><a asp-action="Create" asp-controller="Product">Create</a><span>create product</span></li>
+    </ul>
+</div>
+<div class="preview"><br /><br /><br /><br />
+    <h2 class="main-title" id="title">create-product</h2><br />
+    <div id="log" class="row">
+        <form asp-action="Create" asp-controller="Product" method="post" enctype="multipart/form-data">
+              <div class="input">
+                  <span asp-validation-for="Title" ></span><br />
+                  <input asp-for="Title" placeholder="Product title" /><br />
+                  <span asp-validation-for="Body" ></span><br />
+                  @*<textarea asp-for="Body" placeholder="Product Description"></textarea>*@
+                  <input asp-for="Body" placeholder="Product Body" /><br />
+                  <span asp-validation-for="Img" ></span><br />
+                  <input type="file" asp-for="Img" placeholder="Product Img" /><br />
+                  <span asp-validation-for="Price" ></span><br />
+                  <input asp-for="Price" placeholder="Product price (intger)" /><br />
+                  <span asp-validation-for="CategoryId" ></span><br />
+                  <select asp-for="CategoryId" asp-items="@ViewBag.c"></select><br />
+              </div>
+              <input type="submit" class="btn" value="create Category" /><br />
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+

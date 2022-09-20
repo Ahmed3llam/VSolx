@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSolx</title>
+    <link rel="stylesheet" href="/css/pro.css"/>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="nav">
+  <nav>
+  <a class="logo" href="#"> VSolx </a>
+  <ul class="main-nav">
+    <li><a asp-area="" asp-controller="Home" asp-action="Index"> Home </a></li>
+    <li><a asp-area="" asp-controller="User" asp-action="Profile"> Profile </a></li>
+    <li><a asp-area="" asp-controller="Product" asp-action="Index"> Products </a></li>
+    <li><a asp-area="" asp-controller="Cart" asp-action="Index"> cart </a></li>
+    <li><a asp-area="" asp-controller="User" asp-action="Logout"> Logout </a></li>
+  </ul>
+</nav>
+</div>
+      <center>
+      <div class="articles" id="articles">
+          <h2 class="main-title">Products</h2>
+          @RenderBody()
+        </div>
+      
+      <div class="contact" id="contact">
+          <div id="orangeStar" class="str1"></div>
+          <div id="orangeStar" class="str2"></div>
+          <div id="purpleStar" class="str3"></div>
+          <div id="purpleStar" class="str4"></div>
+        <div class="container">
+          <h2 class="special-heading">Contact</h2>
+          <p>We are born to create</p>
+          <div class="info">
+            <p class="label">Feel free to drop us a line at:</p>
+            <a href="mailto:ahmedmohamedallam230@gmail.com?subject=Contact" class="link">DEVELOPER@gmail.com</a>
+            <a href="mailto:ahmedmohamedallam230@gmail.com?subject=Contact" class="link">ADMIN@gmail.com</a>
+          </div>
+        </div>
+      </div>
+       
+      <div class="footer">&copy; 2022 <span>one</span> All Right Reserved</div>
+     </center>
+      @RenderSection("scripts", required: false)
+</body>
+</html>

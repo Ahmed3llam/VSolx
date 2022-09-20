@@ -1,0 +1,95 @@
+﻿@model VSolx.View_Model.Detail
+
+@{
+    Layout = "_Pro";
+    int? userId = Context.Session.GetInt32("UserId");
+}
+<style>
+    .list .top{
+        margin:25px;
+    }
+    .preview .container{
+        margin-top:-15vh;
+    }
+    table{
+    width: 110%;
+    text-align: center;
+    
+    box-shadow: 0px 0px 30px 0px rgba(115, 0, 255, 0.5);
+    border-radius:10px;
+}
+table th{
+    text-transform: uppercase;
+    color: rgb(206, 206, 206);
+}
+th,td{
+    padding: 5px;
+    color: rgb(165, 165, 165);
+}
+.input .hidden{
+    display:none;
+}
+</style>
+<div class="container">
+          <div class="holder">
+            <div class="list">
+                <div class="top">
+                    <h1 class="special-heading">Product</h1>
+                     <p>
+                         Reviews And Detail About this Product
+                     </p>
+                </div>
+              <ul>
+                
+              </ul>
+            </div>
+            <div class="preview"><br>
+              <section class="services" id="services">
+                <div id="orangeStar" class="str1"></div>
+                <div id="purpleStar" class="str2"></div>
+                <div id="purpleStar" class="str3"></div>
+                <div id="orangeStar" class="str4"></div>
+                <div class="container">
+                    <div class="table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <h2 class="main-title" id="title">Add-Comment</h2><br />
+                            </tr>
+                            <tr>
+                                <div id="log" class="row">
+                                <form asp-action="Create" asp-controller="Comment" method="post">
+                                    <div class="input">
+                                        <input class="hidden" asp-for="Uid" value="@userId"/>
+                                        <input class="hidden" asp-for="Pid" value="@Model.Pid" />
+                                        <span asp-validation-for="Comment.Body" ></span><br /><br />
+                                        <input asp-for="Comment.Body" placeholder="Add comment" / ><br />
+
+                                        <span asp-validation-for="Comment.Sticker"></span><br /><br />
+                                        <input type="file" asp-for="Comment.Sticker" placeholder="Sticker" / ><br />
+                                    </div><br />
+                                    <input type="submit" class="btn" value="Add" /><br />
+                                </form>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+      </div>
+        
+      </div>
+            </section>
+            </div>
+          </div>
+        </div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+
+
+
+
+
+                                    

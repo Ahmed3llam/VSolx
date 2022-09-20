@@ -1,0 +1,165 @@
+﻿@{
+    int? userID = Context.Session.GetInt32("UserId");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSolx</title>
+    <link rel="stylesheet" href="/css/home.css"/>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="nav">
+  <nav>
+  <a class="logo" href="#"> VSolx </a>
+  <ul class="main-nav">
+                @{
+                    if (userID == null)
+                    {
+                            <li><a asp-area="" asp-controller="User" asp-action="Login"> Login </a></li>
+                            <li><a asp-area="" asp-controller="User" asp-action="Register"> Register </a></li>
+                    }
+                    else
+
+                    {
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index"> Home </a></li>
+                            <li><a asp-area="" asp-controller="User" asp-action="Profile"> Profile </a></li>
+                            <li><a asp-area="" asp-controller="Product" asp-action="Index"> Products </a></li>
+                            <li><a asp-area="" asp-controller="Cart" asp-action="Index"> cart </a></li>
+                            <li><a asp-area="" asp-controller="User" asp-action="Logout"> Logout </a></li>
+                    }}
+                    </ul>
+</nav>
+</div>
+        <section id="home">
+          <!-- stars -->
+          <div id="orangeStar" class="str1"></div>
+          <div id="orangeStar" class="str2"></div>
+          <div id="purpleStar" class="str3"></div>
+          <div id="purpleStar" class="str4"></div>
+          <!-- wave effect -->
+          <div class="ocean">
+              <div class="wave"></div>
+              <div class="wave"></div>
+              <div class="wave"></div>
+          </div>
+          <div class="container">
+            <div class="left">
+                <h1 data-aos="fade-right">Welcome</h1>
+                <h2 data-aos="fade-right">
+                    
+                    <span class="typed-text"></span>
+                    <span class="cursor">&nbsp;</span>
+                </h2>
+
+                <p data-aos="fade-right"></p>
+            </div>
+
+            <div class="right">
+                <img src="../images/landing-image.png" class="me" data-aos="fade-up" />
+
+                <!-- icons -->
+                <img src="../images/web-design.png" class="web" data-aos="fade-right" />
+                
+                <img src="../images/brush-pen.png" class="design" data-aos="fade-left" />
+            </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div id="orangeStar" class="str1"></div>
+        <div id="purpleStar" class="str2"></div>
+        <div id="purpleStar" class="str3"></div>
+        <div class="container">
+            <div class="bottom" data-aos="fade-up">
+                <div class="box box1">
+                    <h1>01</h1><br>
+                    <h2>Years</h2>
+                </div>
+                <div class="box box2">
+                    <h1>500+</h1><br>
+                    <h2>User <br>In Year</h2>
+                </div>
+                <div class="box box3">
+                    <h1>12+</h1><br>
+                    <h2>Category <br>And Institute</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+      <div id="orangeStar" class="str1"></div>
+      <div id="purpleStar" class="str2"></div>
+      <div id="purpleStar" class="str3"></div>
+      <div id="orangeStar" class="str4"></div>
+      <div class="top">
+          <h1 class="special-heading">Services</h1>
+          <p>
+              Reviews And Detail About Our Services
+          </p>
+      </div>
+      <br><br><br>
+      <div class="container">
+        <div class="box">
+          <h3>Free User</h3>
+          <div class="content">
+            user can only buy from website 
+          </div>
+          <div class="info">
+            <a href="#">Details</a>
+          </div>
+        </div>
+        <div class="box">
+          <h3>Vip User</h3>
+          <div class="content">
+             user can sell and buy from website throught pay 10$
+          </div>
+          <div class="info">
+            <a href="#">Details</a>
+          </div>
+        </div>
+        <div class="box">
+          <h3>Admin</h3>
+          <div class="content">
+            control website
+         </div>
+          <div class="info">
+            <a href="#">Details</a>
+          </div>
+        </div>
+        <br><br><br>
+      </div>
+  </section>
+  
+      <div class="contact" id="contact">
+          <div id="orangeStar" class="str1"></div>
+          <div id="orangeStar" class="str2"></div>
+          <div id="purpleStar" class="str3"></div>
+          <div id="purpleStar" class="str4"></div>
+        <div class="container">
+          <h2 class="special-heading">Contact</h2>
+          <p>We are born to create</p>
+          <div class="info">
+            <p class="label">Feel free to drop us a line at:</p>
+            <a href="mailto:ahmedmohamedallam230@gmail.com?subject=Contact" class="link">DEVELOPER@gmail.com</a>
+            
+          </div>
+        </div>
+      </div>
+       
+      <div class="footer">&copy; 2022 <span>VSolx</span> All Right Reserved</div>
+      <script src="~/js/home.js"></script>
+</body>
+</html>

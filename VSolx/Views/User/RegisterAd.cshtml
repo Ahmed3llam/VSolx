@@ -1,0 +1,66 @@
+﻿@model User
+
+@{
+    Layout = "_Log";
+}
+<div class="list">
+    <div class="name">
+        Select
+    </div>
+    <ul>
+       <li id="logbtn">LOG IN<span>if you have account</span></li>
+       <li id="signbtn">SIGN UP<span>if you haven't account</span></li>
+    </ul>
+</div>
+<div class="preview"><br /><br /><br /><br />
+    <h2 class="main-title" id="title">Register</h2><br />
+    <div id="log" class="row">
+    <form asp-action="RegisterAd" asp-controller="User" method="post">
+        <div class="input">
+            <span asp-validation-for="fname" ></span><br /><br />
+            <input asp-for="fname" placeholder="first name" / ><br />
+
+            <span asp-validation-for="lname"></span><br /><br />
+            <input asp-for="lname" placeholder="last name" / ><br />
+
+            <span asp-validation-for="Phone"></span><br /><br />
+            <input asp-for="Phone" placeholder="phone" /><br />
+
+            <span asp-validation-for="Gender" ></span><br /><br />
+            <select asp-for="Gender">
+                <option value="male">Male</option>
+                 <option value="female">Female</option>
+            </select><br />
+
+            <span asp-validation-for="Address" ></span><br />
+            <input asp-for="Address" placeholder=" Address" /><br />
+
+            <span asp-validation-for="Email" class="text-danger"></span><br />
+            <input asp-for="Email" placeholder="Email Address" /><br />
+
+            <span asp-validation-for="Password" ></span><br /><br />
+            <input type="password" asp-for="Password" placeholder="password" /><br />
+
+            <span asp-validation-for="ConfirmPassword" ></span><br /><br />
+            <input type="password" asp-for="ConfirmPassword" placeholder="confirm pass" /><br />
+
+            <span asp-validation-for="Role"></span><br /><br />
+            <select asp-for="Role" >
+                <option value="User">Admin</option>
+            </select><br />
+            @*<span asp-validation-for="Visa"></span>*@
+           @* @if(Role == "Vip"){
+                <span asp-validation-for="Visa" class="text-danger"></span>
+                <label asp-for="Visa" class="form-label">Confirm Password</label>
+                <input asp-for="Visa" class="form-control" />
+            }*@
+        </div>
+        <input type="submit" class="btn" value="Register" /><br />
+    </form>
+</div></div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+

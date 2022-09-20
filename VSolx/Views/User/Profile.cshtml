@@ -1,0 +1,130 @@
+﻿@model User
+@{
+    Layout = "_Pro";
+}
+<style>
+    .preview{
+        width:100px;
+    }
+  .articles {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+    background-image: linear-gradient(45deg, var(--light-bg), var(--dark-bg), var(--light-bg));
+  }
+  .articles .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+  }
+  .articles .box {
+    box-shadow: 0px 0px 30px 0px rgba(115, 0, 255, 0.5);
+    background-image: linear-gradient(45deg, var(--light-bg), var(--dark-bg), var(--light-bg));
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+  }
+   .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+  }
+   .box img {
+    width: 100%;
+    max-width: 100%;
+    opacity: 0.7;
+  }
+   .content {
+    padding: 20px;
+  }
+  h3 {
+    margin: 0;
+    color: rgb(206, 206, 206);
+  }
+   p {
+    margin: 10px 0 0;
+    line-height: 1.5;
+    color: rgb(165, 165, 165);
+  }
+   .info {
+    padding: 20px;
+    border-top: 1px solid #e6e6e7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+   .info a {
+    color: rgba(74, 3, 161, 0.5);
+    font-weight: bold;
+    text-decoration: none;
+  }
+   .info a:hover {
+    color: var(--grad2-clr-left);
+    animation: moving-arrow 0.6s linear infinite;
+  }
+   .info i {
+    color: rgba(115, 0, 255, 0.5);
+  }
+   .info i {
+    animation: moving-arrow 0.6s linear infinite;
+  }
+  img{
+        height:40%;
+    }
+</style>
+<div class="container">
+          <div class="holder">
+            <div class="list">
+              <div class="name">
+                Select
+              </div>
+              <ul>
+                <li>Name<span> @Model.fname  @Model.lname</span></li>
+                <li>Email<span> @Model.Email</span></li>
+                <li>Address<span> @Model.Address</span></li>
+                <li>Phone<span> @Model.Phone</span></li>
+                <li>Gender<span> @Model.Gender</span></li>
+                <li><a href="/User/Update/@Model.Id" >Update</a><span> if you need to update your data</span></li>
+                <li><a href="/User/Delete/@Model.Id" onclick="return confirm('Do you want to delete your Email?')">Delete</a><span> if you want to delete your Email</span></li>
+              </ul>
+              <!--<div id="image"><img src="images/b2.png" alt="" /></div>-->
+            </div>
+            <div class="preview"><br>
+              <div class="articles" id="articles">
+                 <div class="top">
+                    <h1 class="special-heading">product</h1>
+                    <p>
+                        Reviews And Detail About your product
+                    </p>
+                </div>
+                <div class="container">
+      @foreach (var product in Model.Products){
+        <div class="box">
+           <a href="/Product/Detail/@product.Id" class="card-link"><img src="@product.Img" alt="..."></a>
+           <h3 class="card-title">@product.Title</h3>
+          <div class="content">
+            <p>@product.Body</p>
+            <p>#@product.Category.Title</p>
+          </div>
+          <div class="info">
+            <a href="/Cart/Index/@product.Id">Add To Cart</a><br>
+             @if (product.UserID == Context.Session.GetInt32("UserId"))
+            {
+                <a href="/Product/Update/@product.Id" class="card-link">update</a><br>
+                <a href="/Product/Delete/@product.Id" onclick="return confirm('Do you want to delete this element?')" class="card-link">delete</a><br>
+            }
+          </div>
+        </div> 
+      }
+      </div>
+      </div>
+            </div>
+          </div>
+        </div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+

@@ -1,0 +1,34 @@
+﻿@model VSolx.View_Model.LogVM
+@{
+    Layout = "_Log";
+}
+<div class="list">
+    <div class="name">
+       Select
+    </div>
+     <ul>
+        <li > Login <span>if you have account</span></li>
+        <li > SIGN UP<span>if you haven't account</span></li>
+     </ul>
+ </div>
+ <div class="preview"><br /><br /><br /><br />
+    <h2 class="main-title" id="title">Log-in</h2><br />
+    <div id="log" class="row">
+        <form asp-action="Login" asp-controller="User" method="post">
+            <div class="input">
+            <span asp-validation-for="Email" class="text-danger"></span><br />
+            <input asp-for="Email" placeholder="Email Address" /><br />
+            <span asp-validation-for="Password" ></span><br /><br />
+            <input type="password" asp-for="Password" placeholder="password" /><br />
+            </div>
+            <input type="submit" class="btn" value="Log in" /><br />
+        </form>
+    </div>
+ </div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+
